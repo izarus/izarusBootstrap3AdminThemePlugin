@@ -22,11 +22,12 @@ Utilización
 
 2. Aplicar el theme en los `apps/APPNAME/modules/MODULENAME/config/generator.yml`:
 
-````
+```
 generator:
   param:
     theme:  bootstrap
-````
+```
+
 
 
 
@@ -38,8 +39,9 @@ $ php symfony cc
 
 
 
+
 4. Para crear nuevos módulos con el admin generator y el theme Boostrap:
 
 ```
 $ php symfony doctrine:generate-admin appname CLASSNAME --theme=bootstrap
-``
+```
