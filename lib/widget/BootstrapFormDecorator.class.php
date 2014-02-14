@@ -3,7 +3,7 @@
 class BootstrapFormDecorator extends sfWidgetFormSchemaFormatter
 {
   protected
-    $rowFormat                 = "<div class=\"form-group %error_class%\">\n  %label%\n  <div class=\"col-xs-9\">%field%\n%help%\n%error%</div>\n%hidden_fields%</div>\n",
+    $rowFormat                 = "<div class=\"form-group %error_class%\">\n  %label%\n  <div class=\"col-xs-8\">%field%\n%help%\n%error%</div>\n%hidden_fields%</div>\n",
     $helpFormat                = "<span class=\"help-block\">%help%</span>",
     $errorRowFormat            = "\n%errors%\n",
     $errorListFormatInARow     = "\n%errors%\n",
@@ -31,7 +31,7 @@ class BootstrapFormDecorator extends sfWidgetFormSchemaFormatter
       $attributes['class'] = '';
     }
 
-    $attributes['class'] .= 'col-xs-3 control-label';
+    $attributes['class'] .= 'col-xs-4 control-label';
 
     return $this->widgetSchema->renderContentTag('label', $labelName, $attributes);
   }

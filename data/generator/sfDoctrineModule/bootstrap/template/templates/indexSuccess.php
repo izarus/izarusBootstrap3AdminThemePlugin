@@ -8,7 +8,7 @@
     <div class="alert alert-info alert-block">
       <a href="#" class="close fade" data-dismiss="alert" aria-hidden="true">&times;</a>
       <h4 class="alert-heading">[?php echo __('Search',null,'bootstrap_admin') ?]</h4>
-      [?php echo __('Search results.',null,'bootstrap_admin') ?] <a href="#filterPopup" data-toggle="modal">[?php echo __('Modify parameters.',null,'bootstrap_admin') ?]</a>
+      [?php echo __('Search results.',null,'bootstrap_admin') ?] <a href="#filterPopup" data-toggle="modal">[?php echo __('Modify parameters/filters.',null,'bootstrap_admin') ?]</a>
     </div>
     [?php endif; ?]
 

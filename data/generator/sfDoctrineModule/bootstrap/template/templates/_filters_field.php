@@ -5,7 +5,7 @@
 [?php else: ?]
   <div class="form-group [?php echo $class ?]">
     [?php echo $form[$name]->renderLabel($label, array('class' => 'control-label')) ?]
-    <div class="col-xs-9">
+    <div class="col-xs-8">
       [?php echo $form[$name]->render($attributes instanceof sfOutputEscaper ? $attributes->getRawValue() : $attributes) ?]
       [?php echo $form[$name]->renderError() ?]
       [?php if ($help || $help = $form[$name]->renderHelp()): ?]

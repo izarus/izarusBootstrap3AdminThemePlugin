@@ -1,5 +1,5 @@
 <hr>
-<div class="form-actions">
+<div class="form-actions text-right">
 <div class="btn-group">
 <?php foreach (array('new', 'edit') as $action): ?>
 <?php if ('new' == $action): ?>

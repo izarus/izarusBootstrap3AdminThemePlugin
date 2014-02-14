@@ -13,8 +13,8 @@
         <target>Resultados de la búsqueda.</target>
       </trans-unit>
       <trans-unit id="3">
-        <source>Modify parameters.</source>
-        <target>Modificar parámetros.</target>
+        <source>Modify parameters/filters.</source>
+        <target>Modificar parámetros/filtros.</target>
       </trans-unit>
     </body>
   </file>
