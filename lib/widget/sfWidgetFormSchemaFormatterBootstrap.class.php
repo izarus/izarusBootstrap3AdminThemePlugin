@@ -1,6 +1,6 @@
 <?php
 
-class BootstrapFormDecorator extends sfWidgetFormSchemaFormatter
+class sfWidgetFormSchemaFormatterBootstrap extends sfWidgetFormSchemaFormatter
 {
   protected
     $rowFormat                 = "<div class=\"form-group %error_class%\">\n  %label%\n  <div class=\"col-xs-8\">%field%\n%help%\n%error%</div>\n%hidden_fields%</div>\n",
