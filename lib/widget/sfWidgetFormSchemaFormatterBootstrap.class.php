@@ -9,8 +9,26 @@ class sfWidgetFormSchemaFormatterBootstrap extends sfWidgetFormSchemaFormatter
     $errorListFormatInARow     = "\n%errors%\n",
     $errorRowFormatInARow      = "<div class=\"help-block text-danger\">%error%</div>\n",
     $namedErrorRowFormatInARow = "<div class=\"help-block text-danger\">%name%: %error%</div>\n",
-    $decoratorFormat           = "%content%"
+    $decoratorFormat           = "%content%",
+    $widgetSchema              = null,
+    $translationCatalogue      = null
     ;
+
+  public function __construct(sfWidgetFormSchema $widgetSchema)
+  {
+    parent::__construct($widgetSchema);
+    foreach ($this->getWidgetSchema()->getFields() as $field) {
+      if ( !($field instanceof sfWidgetFormInputCheckbox) && !($field instanceof sfWidgetFormChoice && $field->getOption('expanded')))
+      {
+        if ($field->getAttribute('class')){
+          $field->setAttribute('class',$field->getAttribute('class').' form-control');
+        } else {
+          $field->setAttribute('class','form-control');
+        }
+      }
+      if ($field->hasOption('with_empty')) $field->setOption('with_empty',false);
+    }
+  }
 
   public function generateLabel($name, $attributes = array()) {
     $labelName = $this->generateLabelName($name);
