@@ -3,7 +3,7 @@
 class sfWidgetFormSchemaFormatterBootstrap extends sfWidgetFormSchemaFormatter
 {
   protected
-    $rowFormat                 = "<div class=\"form-group %error_class%\">\n  %label%\n  <div class=\"col-xs-8\">%field%\n%help%\n%error%</div>\n%hidden_fields%</div>\n",
+    $rowFormat                 = "<div class=\"form-group form-group-%name% %error_class%\">\n  %label%\n  <div class=\"col-xs-8\">%field%\n%help%\n%error%</div>\n%hidden_fields%</div>\n",
     $helpFormat                = "<span class=\"help-block\">%help%</span>",
     $errorRowFormat            = "\n%errors%\n",
     $errorListFormatInARow     = "\n%errors%\n",
@@ -11,7 +11,8 @@ class sfWidgetFormSchemaFormatterBootstrap extends sfWidgetFormSchemaFormatter
     $namedErrorRowFormatInARow = "<div class=\"help-block text-danger\">%name%: %error%</div>\n",
     $decoratorFormat           = "%content%",
     $widgetSchema              = null,
-    $translationCatalogue      = null
+    $translationCatalogue      = null,
+    $name                      = null
     ;
 
   public function __construct(sfWidgetFormSchema $widgetSchema)
@@ -32,6 +33,8 @@ class sfWidgetFormSchemaFormatterBootstrap extends sfWidgetFormSchemaFormatter
 
   public function generateLabel($name, $attributes = array()) {
     $labelName = $this->generateLabelName($name);
+
+    $this->name = $name;
 
     if (false === $labelName)
     {
@@ -63,6 +66,7 @@ class sfWidgetFormSchemaFormatterBootstrap extends sfWidgetFormSchemaFormatter
       '%error%'         => $this->formatErrorsForRow($errors),
       '%help%'          => $this->formatHelp($help),
       '%hidden_fields%' => null === $hiddenFields ? '%hidden_fields%' : $hiddenFields,
+      '%name%'          => $this->name,
     ));
   }
 }

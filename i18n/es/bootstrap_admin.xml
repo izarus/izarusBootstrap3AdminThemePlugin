@@ -16,6 +16,10 @@
         <source>Modify parameters/filters.</source>
         <target>Modificar parámetros/filtros.</target>
       </trans-unit>
+      <trans-unit id="4">
+        <source>Back to list</source>
+        <target>Volver al Listado</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

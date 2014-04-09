@@ -1,7 +1,7 @@
 <?php if ($listActions = $this->configuration->getValue('list.batch_actions')): ?>
 
 <div class="btn-group">
-  <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#">
+  <a class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" href="#">
     [?php echo __('Choose an action', array(), 'sf_admin') ?]
     <span class="caret"></span>
   </a>

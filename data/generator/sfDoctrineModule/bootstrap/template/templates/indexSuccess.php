@@ -9,6 +9,7 @@
       <a href="#" class="close fade" data-dismiss="alert" aria-hidden="true">&times;</a>
       <h4 class="alert-heading">[?php echo __('Search',null,'bootstrap_admin') ?]</h4>
       [?php echo __('Search results.',null,'bootstrap_admin') ?] <a href="#filterPopup" data-toggle="modal">[?php echo __('Modify parameters/filters.',null,'bootstrap_admin') ?]</a>
+      [?php echo link_to(__('Reset', array(), 'sf_admin'), '<?php echo $this->getUrlForAction('collection') ?>', array('action' => 'filter'), array('query_string' => '_reset', 'method' => 'post', 'class' => 'btn btn-xs btn-default')) ?]
     </div>
     [?php endif; ?]
 

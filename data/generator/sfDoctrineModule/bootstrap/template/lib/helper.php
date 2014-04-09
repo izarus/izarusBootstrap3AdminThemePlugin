@@ -17,12 +17,12 @@ abstract class Base<?php echo ucfirst($this->getModuleName()) ?>GeneratorHelper 
 
   public function linkToNew($params)
   {
-    return link_to('<i class="glyphicon glyphicon-plus"></i> '.__($params['label'], array(), 'sf_admin'), '@'.$this->getUrlForAction('new'), array('class' => 'btn btn-info'));
+    return link_to('<i class="glyphicon glyphicon-plus"></i> '.__($params['label'], array(), 'sf_admin'), '@'.$this->getUrlForAction('new'), array('class' => 'btn btn-sm btn-info'));
   }
 
   public function linkToEdit($object, $params)
   {
-    return link_to(__($params['label'], array(), 'sf_admin'), $this->getUrlForAction('edit'), $object, array('class' => 'btn btn-primary'));
+    return link_to('<i class="glyphicon glyphicon-pencil"></i> '.__($params['label'], array(), 'sf_admin'), $this->getUrlForAction('edit'), $object, array('class' => 'btn btn-sm btn-primary'));
   }
 
   public function linkToDelete($object, $params)
@@ -32,17 +32,17 @@ abstract class Base<?php echo ucfirst($this->getModuleName()) ?>GeneratorHelper 
       return '';
     }
 
-    return link_to(__($params['label'], array(), 'sf_admin'), $this->getUrlForAction('delete'), $object, array('method' => 'delete', 'confirm' => !empty($params['confirm']) ? __($params['confirm'], array(), 'sf_admin') : $params['confirm'], 'class' => 'btn btn-danger'));
+    return link_to('<i class="glyphicon glyphicon-remove"></i> '.__($params['label'], array(), 'sf_admin'), $this->getUrlForAction('delete'), $object, array('method' => 'delete', 'confirm' => !empty($params['confirm']) ? __($params['confirm'], array(), 'sf_admin') : $params['confirm'], 'class' => 'btn btn-sm btn-danger'));
   }
 
   public function linkToList($params)
   {
-    return link_to(__($params['label'], array(), 'sf_admin'), '@'.$this->getUrlForAction('list'), array('class' => 'btn btn-default'));
+    return link_to('<i class="glyphicon glyphicon-list"></i> '.__($params['label'], array(), 'bootstrap_admin'), '@'.$this->getUrlForAction('list'), array('class' => 'btn btn-sm btn-default'));
   }
 
   public function linkToSave($object, $params)
   {
-    return '<button type="submit" class="btn btn-primary">'.__($params['label'], array(), 'sf_admin').'</button>';
+    return '<button type="submit" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-ok"></i> '.__($params['label'], array(), 'sf_admin').'</button>';
   }
 
   public function linkToSaveAndAdd($object, $params)
@@ -52,6 +52,6 @@ abstract class Base<?php echo ucfirst($this->getModuleName()) ?>GeneratorHelper 
       return '';
     }
 
-    return '<button type="submit" value="'.__($params['label'], array(), 'sf_admin').'" name="_save_and_add" class="btn btn-primary">'.__($params['label'], array(), 'sf_admin').'</button>';
+    return '<button type="submit" value="'.__($params['label'], array(), 'sf_admin').'" name="_save_and_add" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-ok"></i> '.__($params['label'], array(), 'sf_admin').'</button>';
   }
 }
