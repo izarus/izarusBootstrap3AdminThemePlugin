@@ -1,0 +1,4 @@
+default:
+  bootstrap_admin:
+    labelcols: 4
+    fieldcold: 8

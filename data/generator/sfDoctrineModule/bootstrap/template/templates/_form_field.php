@@ -4,9 +4,9 @@
   [?php include_component('<?php echo $this->getModuleName() ?>', $name, array('form' => $form, 'attributes' => $attributes instanceof sfOutputEscaper ? $attributes->getRawValue() : $attributes)) ?]
 [?php else: ?]
   <div class="form-group [?php echo $class ?][?php $form[$name]->hasError() and print ' has-error' ?]">
-      [?php echo $form[$name]->renderLabel($label, array('class' => 'col-lg-4 control-label')) ?]
+      [?php echo $form[$name]->renderLabel($label, array('class' => 'col-lg-'.sfConfig::get('app_bootstrap_admin_labelcols',4).' control-label')) ?]
 
-      <div class="col-lg-8 [?php echo $class ?]">
+      <div class="col-lg-[?php echo sfConfig::get('app_bootstrap_admin_fieldcols',8) ?] [?php echo $class ?]">
         [?php echo $form[$name]->render($attributes instanceof sfOutputEscaper ? $attributes->getRawValue() : $attributes) ?]
         <span class="help-block">[?php echo $form[$name]->renderError() ?]</span>
         [?php if ($help): ?]
