@@ -3,7 +3,7 @@
 class sfWidgetFormSchemaFormatterBootstrap extends sfWidgetFormSchemaFormatter
 {
   protected
-    $rowFormat                 = "<div class=\"form-group form-group-%name% %error_class%\">\n  %label%\n  <div class=\"col-xs-8\">%field%\n%help%\n%error%</div>\n%hidden_fields%</div>\n",
+    $rowFormat                 = "<div class=\"form-group form-group-%name% %error_class%\">\n  %label%\n  <div class=\"col-lg-%fieldcols%\">%field%\n%help%\n%error%</div>\n%hidden_fields%</div>\n",
     $helpFormat                = "<span class=\"help-block\">%help%</span>",
     $errorRowFormat            = "\n%errors%\n",
     $errorListFormatInARow     = "\n%errors%\n",
@@ -52,7 +52,7 @@ class sfWidgetFormSchemaFormatterBootstrap extends sfWidgetFormSchemaFormatter
       $attributes['class'] = '';
     }
 
-    $attributes['class'] .= 'col-xs-4 control-label';
+    $attributes['class'] .= 'col-lg-'.sfConfig::get('app_bootstrap_admin_labelcols',4).' control-label';
 
     return $this->widgetSchema->renderContentTag('label', $labelName, $attributes);
   }
@@ -67,6 +67,7 @@ class sfWidgetFormSchemaFormatterBootstrap extends sfWidgetFormSchemaFormatter
       '%help%'          => $this->formatHelp($help),
       '%hidden_fields%' => null === $hiddenFields ? '%hidden_fields%' : $hiddenFields,
       '%name%'          => $this->name,
+      '%fieldcols%'     => sfConfig::get('app_bootstrap_admin_fieldcols',8),
     ));
   }
 }
