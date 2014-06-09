@@ -25,7 +25,7 @@
 <?php echo $this->addCredentialCondition('[?php echo $helper->linkTo'.$method.'($form->getObject(), '.$this->asPhp($params).') ?]', $params) ?>
 
 [?php else: ?]
-<?php echo $this->addCredentialCondition($this->getLinkToAction($name, array_replace($params, array('params' => array_merge($params['params'],array('class' => 'btn btn-default')))), true), $params) ?>
+<?php echo $this->addCredentialCondition($this->getLinkToAction($name, array_replace($params, array('params' => array_merge($params['params'],array('class' => 'btn btn-sm btn-default')))), true), $params) ?>
 
 [?php endif; ?]
 <?php endif; ?>
