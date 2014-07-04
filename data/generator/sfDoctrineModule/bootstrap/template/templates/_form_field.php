@@ -8,11 +8,11 @@
 
       <div class="col-lg-[?php echo sfConfig::get('app_bootstrap_admin_fieldcols',8) ?] [?php echo $class ?]">
         [?php echo $form[$name]->render($attributes instanceof sfOutputEscaper ? $attributes->getRawValue() : $attributes) ?]
-        <span class="help-block">[?php echo $form[$name]->renderError() ?]</span>
+        <div class="error-block">[?php echo $form[$name]->renderError() ?]</div>
         [?php if ($help): ?]
-          <span class="help-block">[?php echo __($help, array(), '<?php echo $this->getI18nCatalogue() ?>') ?]</span>
+          <div>[?php echo __($help, array(), '<?php echo $this->getI18nCatalogue() ?>') ?]</div>
         [?php elseif ($help = $form[$name]->renderHelp()): ?]
-          <span class="help-block">[?php echo $help ?]</span>
+          <div>[?php echo $help ?]</div>
         [?php endif; ?]
       </div>
 
