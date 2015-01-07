@@ -25,7 +25,10 @@ $('.batch-actions a').bind('click', function(){
 
 	$('input[name="batch_action"]', $form).val($anchor.data('action'));
 
-	$form.submit();
+  if ($anchor.data('action') == 'batchDelete' && confirm('¿Está seguro que desea eliminar todos los registros seleccionados?'))
+	{
+    $form.submit();
+  }
 
 	return false;
 });
