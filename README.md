@@ -45,3 +45,18 @@ $ php symfony cc
 ```
 $ php symfony doctrine:generate-admin appname CLASSNAME --theme=bootstrap
 ```
+
+
+5. (OPCIONAL) Para utilizar el `izarusWidgetFormBootstrapSelectDoubleList` se debe copiar el archivo `double_list.js` desde el plugin al directorio web/js.
+Un ejemplo de utilizacion:
+
+```
+$this->widgetSchema['clientes_list'] = new sfWidgetFormDoctrineChoice(array(
+      'model' => 'Cliente',
+      'renderer_class' => 'izarusWidgetFormBootstrapSelectDoubleList',
+      'renderer_options' => array(
+        'label_unassociated' => 'No asociados',
+        'label_associated' => 'Asociados',
+        ),
+      ));
+```
