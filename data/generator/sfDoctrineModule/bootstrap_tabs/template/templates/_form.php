@@ -2,6 +2,7 @@
 [?php use_javascripts_for_form($form) ?]
 
 <div role="tabpanel">
+[?php if(count($configuration->getFormFields($form, $form->isNew() ? 'new' : 'edit'))>1): ?]
 <ul class="nav nav-tabs" role="tablist">
 [?php $i=1; foreach ($configuration->getFormFields($form, $form->isNew() ? 'new' : 'edit') as $fieldset => $fields): ?]
 [?php if ('NONE' != $fieldset): ?]
@@ -10,6 +11,7 @@
 [?php $i++; endforeach; ?]
 </ul>
 <br>
+[?php endif; ?]
 
 [?php include_partial('<?php echo $this->getModuleName() ?>/flashes') ?]
 
