@@ -10,7 +10,9 @@
 [?php $i++; endforeach; ?]
 </ul>
 <br>
-&nbsp;
+
+[?php include_partial('<?php echo $this->getModuleName() ?>/flashes') ?]
+
 [?php echo form_tag_for($form, '@<?php echo $this->params['route_prefix'] ?>', array('class' => 'form-horizontal')) ?]
   [?php echo $form->renderHiddenFields(false) ?]
 
