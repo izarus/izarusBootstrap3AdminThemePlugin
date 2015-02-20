@@ -33,7 +33,6 @@ class sfWidgetFormSchemaFormatterBootstrap extends sfWidgetFormSchemaFormatter
 
   public function generateLabel($name, $attributes = array()) {
     $labelName = $this->generateLabelName($name);
-
     $this->name = $name;
 
     if (false === $labelName)
@@ -59,8 +58,14 @@ class sfWidgetFormSchemaFormatterBootstrap extends sfWidgetFormSchemaFormatter
 
   public function formatRow($label, $field, $errors = array(), $help = '', $hiddenFields = null)
   {
+    if(empty($field))
+      $label = '';
+    
+    if(strpos($label,'<label')===false)
+      $this->setRowFormat('<div class="hide">'.$this->getRowFormat().'</div>');
+    
     $doc = new DOMDocument();
-    $doc->loadHTML($field);
+    @$doc->loadHTML($field);
     $xpath = new DOMXPath($doc);
     $pclass = $xpath->evaluate("string(//*/@data-parent-cols)");
   
