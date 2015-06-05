@@ -5,7 +5,7 @@
 
 <form action="#" class="form-horizontal">
 
-  [?php foreach ($configuration->getFormFields($form, $form->isNew() ? 'new' : 'edit') as $fieldset => $fields): ?]
+  [?php foreach ($configuration->getFormFields($form, 'show') as $fieldset => $fields): ?]
     [?php include_partial('<?php echo $this->getModuleName() ?>/show_fieldset', array('<?php echo $this->getSingularName() ?>' => $<?php echo $this->getSingularName() ?>, 'form' => $form, 'fields' => $fields, 'fieldset' => $fieldset)) ?]
   [?php endforeach; ?]
 
