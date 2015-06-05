@@ -25,6 +25,11 @@ abstract class Base<?php echo ucfirst($this->getModuleName()) ?>GeneratorHelper 
     return link_to('<i class="glyphicon glyphicon-pencil"></i> '.__($params['label'], array(), 'sf_admin'), $this->getUrlForAction('edit'), $object, array('class' => 'btn btn-sm btn-primary'));
   }
 
+  public function linkToShow($object, $params)
+  {
+    return link_to('<i class="glyphicon glyphicon-list-alt"></i> '.__($params['label'], array(),'bootstrap_admin'), $this->getUrlForAction('show'), $object, array('class' => 'btn btn-sm btn-default'));
+  }
+
   public function linkToDelete($object, $params)
   {
     if ($object->isNew())

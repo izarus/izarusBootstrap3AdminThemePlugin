@@ -1,5 +1,5 @@
-[?php use_stylesheets_for_form($form) ?]
-[?php use_javascripts_for_form($form) ?]
+[?php include_stylesheets_for_form($form) ?]
+[?php include_javascripts_for_form($form) ?]
 
 [?php include_partial('<?php echo $this->getModuleName() ?>/flashes') ?]
 
@@ -14,17 +14,13 @@
 </ul>
 [?php endif; ?]
 
-[?php echo form_tag_for($form, '@<?php echo $this->params['route_prefix'] ?>', array('class' => 'form-horizontal')) ?]
-  [?php echo $form->renderHiddenFields(false) ?]
+<form action="#" class="form-horizontal">
 
-  [?php if ($form->hasGlobalErrors()): ?]
-    [?php echo $form->renderGlobalErrors() ?]
-  [?php endif; ?]
 <div class="tab-content">
   [?php $i=1; foreach ($configuration->getFormFields($form, $form->isNew() ? 'new' : 'edit') as $fieldset => $fields): ?]
-    [?php include_partial('<?php echo $this->getModuleName() ?>/form_fieldset', array('<?php echo $this->getSingularName() ?>' => $<?php echo $this->getSingularName() ?>, 'form' => $form, 'fields' => $fields, 'fieldset' => $fieldset, 'numtab'=>$i)) ?]
+    [?php include_partial('<?php echo $this->getModuleName() ?>/show_fieldset', array('<?php echo $this->getSingularName() ?>' => $<?php echo $this->getSingularName() ?>, 'form' => $form, 'fields' => $fields, 'fieldset' => $fieldset, 'numtab'=>$i)) ?]
   [?php $i++; endforeach; ?]
 </div>
-  [?php include_partial('<?php echo $this->getModuleName() ?>/form_actions', array('<?php echo $this->getSingularName() ?>' => $<?php echo $this->getSingularName() ?>, 'form' => $form, 'configuration' => $configuration, 'helper' => $helper)) ?]
+
 </form>
 </div>

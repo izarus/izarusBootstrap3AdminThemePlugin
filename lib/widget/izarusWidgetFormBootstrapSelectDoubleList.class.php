@@ -166,7 +166,7 @@ EOF
    */
   public function getJavascripts()
   {
-    return array('/js/double_list.js');
+    return array('/izarusBootstrap3AdminThemePlugin/js/double_list.js');
   }
 
   public function __clone()

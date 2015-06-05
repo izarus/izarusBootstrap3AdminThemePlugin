@@ -4,12 +4,7 @@ require_once(dirname(__FILE__).'/../lib/Base<?php echo ucfirst($this->moduleName
 require_once(dirname(__FILE__).'/../lib/Base<?php echo ucfirst($this->moduleName) ?>GeneratorHelper.class.php');
 
 /**
- * <?php echo $this->getModuleName() ?> actions.
- *
- * @package    ##PROJECT_NAME##
- * @subpackage <?php echo $this->getModuleName()."\n" ?>
- * @author     ##AUTHOR_NAME##
- * @version    SVN: $Id: actions.class.php 31002 2010-09-27 12:04:07Z Kris.Wallsmith $
+ * <?php echo $this->getModuleName() ?> actions
  */
 abstract class <?php echo $this->getGeneratedModuleName() ?>Actions extends <?php echo $this->getActionsBaseClass()."\n" ?>
 {
@@ -38,6 +33,8 @@ abstract class <?php echo $this->getGeneratedModuleName() ?>Actions extends <?ph
 <?php include dirname(__FILE__).'/../../parts/newAction.php' ?>
 
 <?php include dirname(__FILE__).'/../../parts/createAction.php' ?>
+
+<?php include dirname(__FILE__).'/../../parts/showAction.php' ?>
 
 <?php include dirname(__FILE__).'/../../parts/editAction.php' ?>
 

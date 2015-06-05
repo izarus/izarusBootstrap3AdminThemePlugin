@@ -18,13 +18,13 @@
 
   public function getEditActions()
   {
-    return <?php echo $this->asPhp(isset($this->config['edit']['actions']) ? $this->config['edit']['actions'] : array()) ?>;
+    return <?php echo $this->asPhp(isset($this->config['edit']['actions']) ? $this->config['edit']['actions'] : array('_list' => null, '_delete' => null, '_show' => null, '_save' => null)) ?>;
 <?php unset($this->config['edit']['actions']) ?>
   }
 
   public function getListObjectActions()
   {
-    return <?php echo $this->asPhp(isset($this->config['list']['object_actions']) ? $this->config['list']['object_actions'] : array('_edit' => null, '_delete' => null)) ?>;
+    return <?php echo $this->asPhp(isset($this->config['list']['object_actions']) ? $this->config['list']['object_actions'] : array('_show' => null, '_edit' => null, '_delete' => null)) ?>;
 <?php unset($this->config['list']['object_actions']) ?>
   }
 

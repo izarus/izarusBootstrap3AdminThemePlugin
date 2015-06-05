@@ -24,7 +24,7 @@ abstract class Base<?php echo ucfirst($this->getModuleName()) ?>GeneratorConfigu
     return '<?php echo isset($this->config['form']['class']) ? $this->config['form']['class'] : $this->getModelClass().'Form' ?>';
 <?php unset($this->config['form']['class']) ?>
   }
-  
+
   public function getListLayout(){}
 
   public function hasFilterForm()
@@ -46,6 +46,8 @@ abstract class Base<?php echo ucfirst($this->getModuleName()) ?>GeneratorConfigu
 <?php include dirname(__FILE__).'/paginationConfiguration.php' ?>
 
 <?php include dirname(__FILE__).'/sortingConfiguration.php' ?>
+
+<?php include dirname(__FILE__).'/showConfiguration.php' ?>
 
   public function getTableMethod()
   {
