@@ -1,5 +1,5 @@
   [?php if (!$pager->getNbResults()): ?]
-    <p class="alert alert-danger">[?php echo __('No result', array(), 'sf_admin') ?]</p>
+    <p class="alert alert-info">[?php echo __('No result', array(), 'sf_admin') ?]</p>
     <div class="btn-toolbar">
       [?php include_partial('<?php echo $this->getModuleName() ?>/list_actions', array('helper' => $helper)) ?]
     </div>

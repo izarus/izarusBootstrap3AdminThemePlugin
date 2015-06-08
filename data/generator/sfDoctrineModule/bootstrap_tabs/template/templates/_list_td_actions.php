@@ -1,4 +1,4 @@
-<td style="white-space: nowrap;">
+<td class="text-right" style="white-space: nowrap;">
 <?php foreach ($this->configuration->getValue('list.object_actions') as $name => $params): ?>
 <?php if ('_delete' == $name): ?>
     <?php echo $this->addCredentialCondition('[?php echo $helper->linkToDelete($'.$this->getSingularName().', '.$this->asPhp($params).') ?]', $params) ?>

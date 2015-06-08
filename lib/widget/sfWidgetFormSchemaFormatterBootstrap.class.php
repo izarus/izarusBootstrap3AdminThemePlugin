@@ -5,7 +5,7 @@ class sfWidgetFormSchemaFormatterBootstrap extends sfWidgetFormSchemaFormatter
   protected
     $rowFormat                 = "<div class=\"form-group form-group-%name% %error_class%\">\n  %label%\n  <div class=\"col-lg-%parentcols%\">%field%</div>\n<div class=\"col-lg-offset-%labelcols% col-lg-%fieldcols%\">%help%\n%error%</div>\n%hidden_fields%</div>\n",
     $helpFormat                = "<span class=\"help-block\">%help%</span>",
-    $errorRowFormat            = "\n%errors%\n",
+    $errorRowFormat            = "\n<div class=\"alert alert-danger\">%errors%</div>\n",
     $errorListFormatInARow     = "\n%errors%\n",
     $errorRowFormatInARow      = "<div class=\"text-danger\">%error%</div>\n",
     $namedErrorRowFormatInARow = "<div class=\"text-danger\">%name%: %error%</div>\n",
@@ -63,7 +63,7 @@ class sfWidgetFormSchemaFormatterBootstrap extends sfWidgetFormSchemaFormatter
     $doc->loadHTML($field);
     $xpath = new DOMXPath($doc);
     $pclass = $xpath->evaluate("string(//*/@data-parent-cols)");
-  
+
     return strtr($this->getRowFormat(), array(
       '%label%'         => $label,
       '%error_class%'   => count($errors) ? 'has-error' : '',
@@ -77,4 +77,4 @@ class sfWidgetFormSchemaFormatterBootstrap extends sfWidgetFormSchemaFormatter
       '%fieldcols%'     => sfConfig::get('app_bootstrap_admin_fieldcols',8),
     ));
   }
-} 
+}
