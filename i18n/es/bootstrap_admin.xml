@@ -20,6 +20,10 @@
         <source>Back to list</source>
         <target>Volver al Listado</target>
       </trans-unit>
+      <trans-unit id="5">
+        <source>Show</source>
+        <target>Ver</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

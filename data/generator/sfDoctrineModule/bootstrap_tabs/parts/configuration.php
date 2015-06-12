@@ -10,9 +10,13 @@
  */
 abstract class Base<?php echo ucfirst($this->getModuleName()) ?>GeneratorConfiguration extends sfModelGeneratorConfiguration
 {
+
+
 <?php include dirname(__FILE__).'/actionsConfiguration.php' ?>
 
 <?php include dirname(__FILE__).'/fieldsConfiguration.php' ?>
+
+<?php include dirname(__FILE__).'/showConfiguration.php' ?>
 
   /**
    * Gets the form class name.
@@ -24,7 +28,7 @@ abstract class Base<?php echo ucfirst($this->getModuleName()) ?>GeneratorConfigu
     return '<?php echo isset($this->config['form']['class']) ? $this->config['form']['class'] : $this->getModelClass().'Form' ?>';
 <?php unset($this->config['form']['class']) ?>
   }
-  
+
   public function getListLayout(){}
 
   public function hasFilterForm()

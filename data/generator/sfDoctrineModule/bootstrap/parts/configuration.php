@@ -3,10 +3,6 @@
 /**
  * <?php echo $this->getModuleName() ?> module configuration.
  *
- * @package    ##PROJECT_NAME##
- * @subpackage <?php echo $this->getModuleName()."\n" ?>
- * @author     ##AUTHOR_NAME##
- * @version    SVN: $Id: configuration.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
 abstract class Base<?php echo ucfirst($this->getModuleName()) ?>GeneratorConfiguration extends sfModelGeneratorConfiguration
 {
@@ -24,7 +20,7 @@ abstract class Base<?php echo ucfirst($this->getModuleName()) ?>GeneratorConfigu
     return '<?php echo isset($this->config['form']['class']) ? $this->config['form']['class'] : $this->getModelClass().'Form' ?>';
 <?php unset($this->config['form']['class']) ?>
   }
-  
+
   public function getListLayout(){}
 
   public function hasFilterForm()
@@ -46,6 +42,8 @@ abstract class Base<?php echo ucfirst($this->getModuleName()) ?>GeneratorConfigu
 <?php include dirname(__FILE__).'/paginationConfiguration.php' ?>
 
 <?php include dirname(__FILE__).'/sortingConfiguration.php' ?>
+
+<?php include dirname(__FILE__).'/showConfiguration.php' ?>
 
   public function getTableMethod()
   {

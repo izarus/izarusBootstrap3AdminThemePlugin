@@ -16,15 +16,28 @@
   <?php endif; ?>
 
   <div class="page-header">
+    <h1>
+      <div class="pull-right">
+      [?php if ($pager->getNbResults()): ?]
+        <span class="small">
+        [?php echo format_number_choice('[0] no result|[1] 1 result|(1,+Inf] %1% results', array('%1%' => $pager->getNbResults()), $pager->getNbResults(), 'sf_admin') ?]
+        [?php if ($pager->haveToPaginate()): ?]
+          [?php echo __('(page %%page%%/%%nb_pages%%)', array('%%page%%' => $pager->getPage(), '%%nb_pages%%' => $pager->getLastPage()), 'sf_admin') ?]
+        [?php endif; ?]
+        </span>
 
-    <div class="pull-right">
-      <a href="#filterPopup" class="btn btn-default" data-toggle="modal"><i class="glyphicon glyphicon-search"></i> [?php echo __('Search',null,'bootstrap_admin') ?]</a>
-    </div>
-    <h1>[?php echo <?php echo $this->getI18NString('list.title') ?> ?]
-    <small class="col-lg-offset-2">[?php echo format_number_choice('[0] no result|[1] 1 result|(1,+Inf] %1% results', array('%1%' => $pager->getNbResults()), $pager->getNbResults(), 'sf_admin') ?]
-    [?php if ($pager->haveToPaginate()): ?]
-      [?php echo __('(page %%page%%/%%nb_pages%%)', array('%%page%%' => $pager->getPage(), '%%nb_pages%%' => $pager->getLastPage()), 'sf_admin') ?]
-    [?php endif; ?]</small></h1>
+        <a href="#filterPopup" class="btn btn-sm btn-default" data-toggle="modal"><i class="glyphicon glyphicon-search"></i> [?php echo __('Search',null,'bootstrap_admin') ?]</a>
+      [?php endif ?]
+
+        <?php $list_actions = $this->configuration->getValue('list.actions'); ?>
+        <?php if (array_key_exists('_new',$list_actions)): ?>
+        <?php echo $this->addCredentialCondition('[?php echo $helper->linkToNew('.$this->asPhp($list_actions['_new']).') ?]', $list_actions['_new'])."\n" ?>
+        <?php endif; ?>
+
+      </div>
+
+      [?php echo <?php echo $this->getI18NString('list.title') ?> ?]
+    </h1>
   </div>
 
   [?php include_partial('<?php echo $this->getModuleName() ?>/flashes') ?]

@@ -1,6 +1,8 @@
 [?php use_stylesheets_for_form($form) ?]
 [?php use_javascripts_for_form($form) ?]
 
+[?php include_partial('<?php echo $this->getModuleName() ?>/flashes') ?]
+
 <div role="tabpanel">
 [?php if(count($configuration->getFormFields($form, $form->isNew() ? 'new' : 'edit'))>1): ?]
 <ul class="nav nav-tabs" role="tablist">
@@ -10,10 +12,7 @@
 [?php endif; ?]
 [?php $i++; endforeach; ?]
 </ul>
-<br>
 [?php endif; ?]
-
-[?php include_partial('<?php echo $this->getModuleName() ?>/flashes') ?]
 
 [?php echo form_tag_for($form, '@<?php echo $this->params['route_prefix'] ?>', array('class' => 'form-horizontal')) ?]
   [?php echo $form->renderHiddenFields(false) ?]

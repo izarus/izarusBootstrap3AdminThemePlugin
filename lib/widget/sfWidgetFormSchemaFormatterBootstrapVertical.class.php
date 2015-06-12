@@ -5,7 +5,7 @@ class sfWidgetFormSchemaFormatterBootstrapVertical extends sfWidgetFormSchemaFor
   protected
     $rowFormat                 = "<div class=\"form-group form-group-%name% %error_class%\">\n %label%\n %field%\n %help%\n %error%\n %hidden_fields%</div>\n",
     $helpFormat                = "<span class=\"help-block\">%help%</span>",
-    $errorRowFormat            = "\n%errors%\n",
+    $errorRowFormat            = "\n<div class=\"alert alert-danger\">%errors%</div>\n",
     $errorListFormatInARow     = "\n%errors%\n",
     $errorRowFormatInARow      = "<div class=\"text-danger\">%error%</div>\n",
     $namedErrorRowFormatInARow = "<div class=\"text-danger\">%name%: %error%</div>\n",

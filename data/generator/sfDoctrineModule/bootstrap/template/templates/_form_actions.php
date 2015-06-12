@@ -8,11 +8,15 @@
 [?php else: ?]
 <?php endif; ?>
 <?php foreach ($this->configuration->getValue($action.'.actions') as $name => $params): ?>
-<?php if ('_delete' == $name): ?>
+
+<?php if ('_list' == $name): ?>
+<?php echo $this->addCredentialCondition('[?php echo $helper->linkToList('.$this->asPhp($params).') ?]', $params) ?>
+
+<?php elseif ('_delete' == $name): ?>
 <?php echo $this->addCredentialCondition('[?php echo $helper->linkToDelete($form->getObject(), '.$this->asPhp($params).') ?]', $params) ?>
 
-<?php elseif ('_list' == $name): ?>
-<?php echo $this->addCredentialCondition('[?php echo $helper->linkToList('.$this->asPhp($params).') ?]', $params) ?>
+<?php elseif ('_show' == $name): ?>
+<?php echo $this->addCredentialCondition('[?php echo $helper->linkToShow($form->getObject(), '.$this->asPhp($params).') ?]', $params) ?>
 
 <?php elseif ('_save' == $name): ?>
 <?php echo $this->addCredentialCondition('[?php echo $helper->linkToSave($form->getObject(), '.$this->asPhp($params).') ?]', $params) ?>
