@@ -24,6 +24,16 @@
           </p>
           [?php endif; ?]
 [?php break; ?>]
+[?php case 'sfWidgetFormInputCheckbox': ?]
+        <p class="form-control-static">
+          <i class="glyphicon glyphicon-[?php echo ($form[$name]->getValue())?'ok text-success':'remove text-danger' ?]"></i>
+        </p>
+[?php break; ?>]
+[?php case 'sfWidgetFormInputPassword': ?]
+        <p class="form-control-static">
+          ******
+        </p>
+[?php break; ?>]
 [?php default: ?]
         <p class="form-control-static">
           [?php echo $form[$name]->getValue() ?]
