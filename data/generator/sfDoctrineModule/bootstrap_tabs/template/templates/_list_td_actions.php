@@ -12,7 +12,7 @@
 <?php elseif ('_show' == $name): ?>
     <?php echo $this->addCredentialCondition('[?php echo $helper->linkToShow($'.$this->getSingularName().', '.$this->asPhp($params).') ?]', $params) ?>
 <?php else: ?>
-      <?php echo $this->addCredentialCondition($this->getLinkToAction($name, array_replace($params, array('params' => array_merge($params['params'],array('class' => 'btn btn-sm btn-'.(($params['params']['btn'])?$params['params']['btn']:'default' ) )))), true), $params) ?>
+      <?php echo $this->addCredentialCondition($this->getLinkToAction($name, array_replace($params, array('params' => array_merge($params['params'],array('class' => 'btn btn-sm btn-'.((!empty($params['params']['btn']))?$params['params']['btn']:'default' ) )))), true), $params) ?>
 <?php endif; ?>
 
 <?php if ( isset( $params['condition'] ) ): ?>
