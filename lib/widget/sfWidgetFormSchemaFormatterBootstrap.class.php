@@ -3,7 +3,7 @@
 class sfWidgetFormSchemaFormatterBootstrap extends sfWidgetFormSchemaFormatter
 {
   protected
-    $rowFormat                 = "<div class=\"form-group form-group-%name% %error_class%\">\n  %label%\n  <div class=\"col-lg-%parentcols%\">%field%</div>\n<div class=\"col-lg-offset-%labelcols% col-lg-%fieldcols%\">%help%\n%error%</div>\n%hidden_fields%</div>\n",
+    $rowFormat                 = "<div class=\"form-group control-type-%type% control-name-%name% %error_class%\">\n  %label%\n  <div class=\"col-lg-%parentcols%\">%field%</div>\n<div class=\"col-lg-offset-%labelcols% col-lg-%fieldcols%\">%help%\n%error%</div>\n</div>\n%hidden_fields%\n",
     $helpFormat                = "<span class=\"help-block\">%help%</span>",
     $errorRowFormat            = "\n<div class=\"alert alert-danger\">%errors%</div>\n",
     $errorListFormatInARow     = "\n%errors%\n",
@@ -33,7 +33,6 @@ class sfWidgetFormSchemaFormatterBootstrap extends sfWidgetFormSchemaFormatter
 
   public function generateLabel($name, $attributes = array()) {
     $labelName = $this->generateLabelName($name);
-
     $this->name = $name;
 
     if (false === $labelName)
@@ -59,10 +58,24 @@ class sfWidgetFormSchemaFormatterBootstrap extends sfWidgetFormSchemaFormatter
 
   public function formatRow($label, $field, $errors = array(), $help = '', $hiddenFields = null)
   {
+    if(empty($field))
+      $label = '';
+
+    if(strpos($label,'<label')===false)
+      $this->setRowFormat('<div class="hide">'.$this->getRowFormat().'</div>');
+
     $doc = new DOMDocument();
-    $doc->loadHTML($field);
+    @$doc->loadHTML($field);
     $xpath = new DOMXPath($doc);
     $pclass = $xpath->evaluate("string(//*/@data-parent-cols)");
+
+    $type = strtolower(str_replace(array('sfWidgetForm','Input'),'',get_class($this->widgetSchema[$this->name])));
+    if(get_class($this->widgetSchema[$this->name])==get_class($this) || empty($type))
+      $type = 'field';
+
+    $name = $this->name;
+    $this->name = '';
+    $name = (empty($name))?'field':$name;
 
     return strtr($this->getRowFormat(), array(
       '%label%'         => $label,
@@ -71,7 +84,8 @@ class sfWidgetFormSchemaFormatterBootstrap extends sfWidgetFormSchemaFormatter
       '%error%'         => $this->formatErrorsForRow($errors),
       '%help%'          => $this->formatHelp($help),
       '%hidden_fields%' => null === $hiddenFields ? '%hidden_fields%' : $hiddenFields,
-      '%name%'          => $this->name,
+      '%name%'          => $name,
+      '%type%'          =>  $type,
       '%parentcols%'     => (!empty($pclass))?$pclass:sfConfig::get('app_bootstrap_admin_fieldcols',8),
       '%labelcols%'     => sfConfig::get('app_bootstrap_admin_labelcols',4),
       '%fieldcols%'     => sfConfig::get('app_bootstrap_admin_fieldcols',8),
