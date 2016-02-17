@@ -47,9 +47,9 @@ class sfWidgetFormSchemaFormatterBootstrapVertical extends sfWidgetFormSchemaFor
     }
 
     if (isset($attributes['class'])) {
-      $attributes['class'] .= ' ';
+      $attributes['class'] .= ' show';
     } else {
-      $attributes['class'] = '';
+      $attributes['class'] = 'show';
     }
 
     return $this->widgetSchema->renderContentTag('label', $labelName, $attributes);
