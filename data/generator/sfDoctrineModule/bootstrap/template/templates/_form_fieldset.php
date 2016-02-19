@@ -6,6 +6,7 @@
 
   [?php foreach ($fields as $name => $field): ?]
     [?php if ((isset($form[$name]) && $form[$name]->isHidden()) || (!isset($form[$name]) && $field->isReal())) continue ?]
+    [?php if ($field->getConfig('credentials') && !$sf_user->hasCredential($field->getConfig('credentials'))) continue; ?]
     [?php include_partial('<?php echo $this->getModuleName() ?>/form_field', array(
       'name'       => $name,
       'attributes' => $field->getConfig('attributes', array()),
@@ -16,5 +17,5 @@
       'class'      => 'control-type-'.strtolower($field->getType()).' control-name-'.$name,
     )) ?]
   [?php endforeach; ?]
-  
+
 </fieldset>

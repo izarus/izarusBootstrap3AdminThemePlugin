@@ -1,3 +1,4 @@
+[?php if (!$field->getConfig('credentials') || $sf_user->hasCredential($field->getConfig('credentials'))): ?]
 [?php if ($field->isPartial()): ?]
   [?php include_partial('<?php echo $this->getModuleName() ?>/'.$name, array('form' => $form, 'attributes' => $attributes instanceof sfOutputEscaper ? $attributes->getRawValue() : $attributes)) ?]
 [?php elseif ($field->isComponent()): ?]
@@ -17,4 +18,5 @@
       </div>
 
   </div>
+[?php endif; ?]
 [?php endif; ?]
