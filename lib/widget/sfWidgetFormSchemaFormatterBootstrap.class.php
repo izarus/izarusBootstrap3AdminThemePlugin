@@ -79,7 +79,7 @@ class sfWidgetFormSchemaFormatterBootstrap extends sfWidgetFormSchemaFormatter
 
     return strtr($this->getRowFormat(), array(
       '%label%'         => $label,
-      '%error_class%'   => count($errors) ? 'has-error' : '',
+      '%error_class%'   => !empty($errors) ? 'has-error' : '',
       '%field%'         => $field,
       '%error%'         => $this->formatErrorsForRow($errors),
       '%help%'          => $this->formatHelp($help),
